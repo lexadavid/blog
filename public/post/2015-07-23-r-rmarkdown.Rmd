@@ -1,0 +1,48 @@
+---
+title: "Airflow: combining best of R and Python"
+author: "David Lexa"
+date: 2017-09-11
+categories: ["data engineering"]
+tags: ["Airflow", "ETL", "R", "Python"]
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(collapse = TRUE)
+```
+
+
+You might know it from any engineering job, you look for quick solution of your problem but the only available solution was created in other progrming language. While many engineers need to create solution themselves data related jobs do not usually have much limitation regarding to what technology they can use. So you often adopt strategy of using whatever makes the job. Most of data scientist then limit their choices for R and Python. Some tasks are simpler to do in Python and some tasks have just better package support in R. Yes, to know multiple technologies can save you a lot of time. But what if there is task where easiest solution combines multiple languages in the same time?
+One solution is to wrap one chunk of code to other language by using for example rpy2. That works well as long as you handle a bit challenging installation. Other solution is using Apache Airflow, platform for scheduling and monitoring workflows originally developed by Airbnb that enables to run each task as bash command and therefore is practically language independent.
+
+# What is Airflow?
+Shortly it is data flow management tool to handle single time jobs (that you don’t want to run on your local computer) as well as huge ETL processes in scale.
+Among the benefits you would find: 
+-	GUI that provides nice visualization for job process
+-	Couple of metrics about your jobs
+-	Easy access to logs when something goes wrong detail. 
+-	Scalability
+-	Well documented 
+-	Active community
+-	And many more
+
+
+
+```{r cars}
+summary(cars)
+fit <- lm(dist ~ speed, data = cars)
+fit
+```
+
+# Including Plots
+
+You can also embed plots. See Figure \@ref(fig:pie) for example:
+
+```{r pie, fig.cap='A fancy pie chart.', tidy=FALSE}
+par(mar = c(0, 1, 0, 1))
+pie(
+  c(280, 60, 20),
+  c('Sky', 'Sunny side of pyramid', 'Shady side of pyramid'),
+  col = c('#0292D8', '#F7EA39', '#C4B632'),
+  init.angle = -50, border = NA
+)
+```
